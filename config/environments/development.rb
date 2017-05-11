@@ -1,7 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-config.action_mailer.default_url_options = { host: 'https://ide.c9.io/beianca/my_drive#openfile-README.md' }
+config.action_mailer.default_url_options = { host: 'https://my-drive-beianca.c9users.io' }
+
+  config.action_mailer.smtp_settings = {
+       :address              => "smtp.gmail.com",
+       :port                 =>  587,
+       :user_name            => 'beiancatester',
+       :password             =>  'testertestertester',
+       :authentication       => 'plain',
+       :enable_starttls_auto => true  } 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
