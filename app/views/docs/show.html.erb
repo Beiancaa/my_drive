@@ -29,7 +29,7 @@
   <strong>Longitude:</strong>
   <%= @doc.longitude %>
 </p>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@doc.latitude}%2C#{@doc.longitude}" %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@doc.latitude}%2C#{@doc.longitude}" %><br><br>
 <%= link_to 'Edit', edit_doc_path(@doc) %> |
 <%= link_to 'Back', docs_path %> |
 <%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' } %> |
