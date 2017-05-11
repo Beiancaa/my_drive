@@ -1,7 +1,8 @@
-<h1>Editing Doc</h1>
+<h1><center>Editing Document</center></h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @doc %> |
-<%= link_to 'Back', docs_path %> |
-<%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' } %>
+<center>
+<%= link_to 'Show', @doc, class: "btn btn-info"  %> |
+<%= link_to 'Back', docs_path, class: "btn btn-info"  %> |
+<%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"  %>
+</center>
