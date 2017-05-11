@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Docs</h1>
+<h1><center>Listing Documents</center></h1>
 
-<table>
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Time</th>
-      <th>Content</th>
-      <th>City</th>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
+    <tr class="info">
+      <th><center>Title<center></th>
+      <th><center>Time<center></th>
+      <th><center>Content<center></th>
+      <th><center>City<center></th>
+      <th><center>Address<center></th>
+      <th><center>Latitude<center></th>
+      <th><center>Longitude<center></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +19,13 @@
   <tbody>
     <% @docs.each do |doc| %>
       <tr>
-        <td><%= link_to doc.title, doc %></td>
-        <td><%= time_ago_in_words(doc.created_at) %></td>
-        <td><%= truncate(doc.content, length:50) %></td>
-        <td><%= doc.city %></td>
-        <td><%= doc.address %></td>
-        <td><%= doc.latitude %></td>
-        <td><%= doc.latitude %></td>
+        <td><center><%= link_to doc.title, doc %></center></td>
+        <td><center><%= time_ago_in_words(doc.created_at) %></center></td>
+        <td><center><%= truncate(doc.content, length:50) %></center></td>
+        <td><center><%= doc.city %></center></td>
+        <td><center><%= doc.address %></center></td>
+        <td><center><%= doc.latitude %></center></td>
+        <td><center><%= doc.latitude %></center></td>
         <!-- <td><%= link_to 'Show', doc %></td> -->
         <!-- <td><%= link_to 'Edit', edit_doc_path(doc) %></td> -->
       </tr>
@@ -35,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Doc', new_doc_path %>
+<%= link_to 'New Doc', new_doc_path, class: "btn btn-info" %>
