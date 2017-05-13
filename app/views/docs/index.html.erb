@@ -4,7 +4,7 @@
 
 <table class="table table-hover">
   <thead>
-    <tr class="info">
+    <tr class="active">
       <th><center>Title<center></th>
       <th><center>Time<center></th>
       <th><center>Content<center></th>
@@ -18,7 +18,7 @@
 
   <tbody>
     <% @docs.each do |doc| %>
-      <tr>
+      <tr >
         <td><center><%= link_to doc.title, doc %></center></td>
         <td><center><%= time_ago_in_words(doc.created_at) %></center></td>
         <td><center><%= truncate(doc.content, length:50) %></center></td>
@@ -26,7 +26,7 @@
         <td><center><%= doc.address %></center></td>
         <td><center><%= doc.latitude %></center></td>
         <td><center><%= doc.latitude %></center></td>
-        <!-- <td><%= link_to 'Show', doc %></td> -->
+        <td><%= link_to 'Show', @doc %></td>
         <!-- <td><%= link_to 'Edit', edit_doc_path(doc) %></td> -->
       </tr>
     <% end %>
