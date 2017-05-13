@@ -4,15 +4,15 @@
 
 <table class="table table-hover">
   <thead>
-    <tr  class="info">
-      <th><center>Title:</center></th>
-      <th><center>Time:</center></th>
-      <th><center>Content:</center></th>
-      <th><center>City:</center></th>
-      <th><center>Address:</center></th>
-      <th><center>Latitude:</center></th>
-      <th><center>Longitude:</center></th>
-      <th><center>Location:</center></th>
+    <tr  class="active">
+      <th><center>Title</center></th>
+      <th><center>Time</center></th>
+      <th><center>Content</center></th>
+      <th><center>City</center></th>
+      <th><center>Address</center></th>
+      <th><center>Latitude</center></th>
+      <th><center>Longitude</center></th>
+      <th><center>Location</center></th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +30,7 @@
 </table>
 
 <center><%= link_to 'Edit', edit_doc_path(@doc), class: "btn btn-info" %> |
+<%= link_to 'Show', @doc, class: "btn btn-info" %> |
 <%= link_to 'Back', docs_path, class: "btn btn-info" %> |
 <%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %> |
 <%= link_to 'Create New Document', new_doc_path, class: "btn btn-info" %></center>
