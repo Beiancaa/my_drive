@@ -12,12 +12,13 @@
                         
                        
                       <% if user_signed_in? %>
-                        Logged in as <strong><%= current_user.email %></strong>.
+                        Hi <strong><%= current_user.username %></strong>
                         <%= link_to 'Edit profile', edit_user_registration_path %> |
                         <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
                         <% else %>
                         <%= link_to "Sign up", new_user_registration_path  %> |
                         <%= link_to "Login", new_user_session_path %>
+                        
                       <% end %>
  
                      </span>
@@ -32,17 +33,17 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" <%= link_to 'Home' ,home_index_path%> </a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#u">Your Profile</a>
+                        <a class="page-scroll"  <%= link_to 'Your Profile' ,edit_user_registration_path%> </a>      
                     </li>
                     <li>
-                        <a class="page-scroll" href="#d">Your Document</a>
+                        <a class="page-scroll"  <%= link_to 'Your documents' ,docs_path%> </a>
                     </li>
                 </ul>
                 
-               
+            
    
        
        </div>
