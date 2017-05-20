@@ -8,6 +8,7 @@
       <th><center>Title<center></th>
       <th><center>Time<center></th>
       <th><center>Content<center></th>
+      <th><center>Clips Files<center></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><center><%= link_to doc.title, doc %></center></td>
         <td><center><%= time_ago_in_words(doc.created_at) %></center></td>
         <td><center><%= truncate(doc.content, length:50) %></center></td>
+        <td><center><%= link_to 'clips', new_clip_path %></center></td>
         <!-- <td><%= link_to 'Show', @doc %></td> -->
         <!-- <td><%= link_to 'Edit', edit_doc_path(doc) %></td> -->
       </tr>

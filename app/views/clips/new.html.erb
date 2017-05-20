@@ -1,0 +1,27 @@
+<h1><center>New Clip</center></h1>
+
+<% if !@clip.errors.empty? %>
+   <div class = "alert alert-error">
+      
+      <ul>
+         <% @clip.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+      
+   </div>
+<% end %>
+<center>
+<div class = "form-group">
+   <%= form_for @clip, html: { multipart: true } do |f| %>
+      <%= f.label :name %></br>
+      <%= f.text_field :name %></br>
+      <%= f.label :file %></br>
+      <%= f.file_field :file %></br>
+      <%= p params[:doc_no]%>
+      
+      <%=f.text_field :doc_id%>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>
+</div>   
+</center>   

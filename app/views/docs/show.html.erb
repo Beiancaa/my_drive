@@ -8,6 +8,7 @@
       <th><center>Title</center></th>
       <th><center>Time</center></th>
       <th><center>Content</center></th>
+      <th><center>Clips Folder</center></th>
       <th><center>City</center></th>
       <th><center>Address</center></th>
       <th><center>Latitude</center></th>
@@ -21,6 +22,7 @@
         <td><center><%= @doc.title %></center></td>
         <td><center><%= time_ago_in_words(@doc.created_at) %></center></td>
         <td><center><%=truncate(@doc.content, length:50) %></center></td>
+        <td><center><%= link_to 'files', clips_path %></center></td>
         <td><center><%= @doc.city %></center></td>
         <td><center><%= @doc.address %></center></td>
         <td><center><%= @doc.latitude %></center></td>
@@ -30,8 +32,9 @@
   </tbody>
 </table>
 
-<center><%= link_to 'Edit', edit_doc_path(@doc), class: "btn btn-info" %> |
-<%= link_to 'Show', @doc, class: "btn btn-info" %> |
+<center>
+<%= link_to 'clips files', new_clip_path(doc_no: @doc.id), class: "btn btn-info" %> |  
+<%= link_to 'Edit', edit_doc_path(@doc), class: "btn btn-info" %> |
 <%= link_to 'Back', docs_path, class: "btn btn-info" %> |
-<%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %> |
+<%= link_to 'Delete', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %> |
 <%= link_to 'Create New Document', new_doc_path, class: "btn btn-info" %></center>

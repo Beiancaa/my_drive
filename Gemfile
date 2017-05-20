@@ -5,6 +5,8 @@ gem 'geocoder'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
+gem 'carrierwave', '~> 1.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

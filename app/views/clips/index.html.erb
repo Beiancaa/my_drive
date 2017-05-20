@@ -1,0 +1,36 @@
+<h1><center>Listing Clips</center></h1>
+
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+<br />
+<br />
+
+<table class="table table-hover">
+   <thead>.
+      <tr class="active">
+         <th><center>File Name</center></th>
+         <th><center>Show File</center></th>
+         <th><center>Remove File</center></th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @clips.each do |clip| %>
+         
+         <tr>
+            <td><center><%= clip.name %></center></td>
+            <td><center><%= link_to "Show", clip.file_url %></center></td>
+            <td><center><%= link_to "Delete",  clip, method: :delete, confirm: "Are you sure that you wish to delete #{clip.name}?" %></center></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+<center><%= link_to "New Clip", new_clip_path, class: "btn btn-primary" %></center>

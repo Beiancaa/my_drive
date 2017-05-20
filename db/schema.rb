@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510180250) do
+ActiveRecord::Schema.define(version: 20170520103819) do
+
+  create_table "clips", force: :cascade do |t|
+    t.string   "name"
+    t.string   "file"
+    t.integer  "doc_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "clips", ["doc_id"], name: "index_clips_on_doc_id"
 
   create_table "docs", force: :cascade do |t|
     t.string   "title"
