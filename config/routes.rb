@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :blogs
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :docs
   resources :attaches, only: [:index, :new, :create, :destroy]
   devise_for :users
