@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :attaches, only: [:index, :new, :create, :destroy]
   devise_for :users
   get 'home/index'
+  get 'contact', to: 'messages#new', as: 'contact'
+  post 'contact', to: 'messages#create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
