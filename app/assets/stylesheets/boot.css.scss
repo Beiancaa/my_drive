@@ -1,6 +1,14 @@
 @import "bootstrap-sprockets";
  @import "bootstrap";
 
+html { 
+  background: url(https://www.google.iq/imgres?imgurl=https%3A%2F%2Fwww.xerox.com%2Fsites%2Fdefault%2Ffiles%2FDocument_management_ECM_INSIGHT_papers_LARGE_969x686.jpg&imgrefurl=https%3A%2F%2Fwww.xerox.com%2Fen-us%2Fservices%2Fdocument-processing&docid=oSbo1qRO0eI9XM&tbnid=95Zefty-tkjCHM%3A&vet=10ahUKEwiugoa93YLUAhVPZVAKHQ7HAZ8QMwhaKB0wHQ..i&w=969&h=686&bih=638&biw=1366&q=document&ved=0ahUKEwiugoa93YLUAhVPZVAKHQ7HAZ8QMwhaKB0wHQ&iact=mrc&uact=8) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .active{
     background-color: white;
     color: black;
