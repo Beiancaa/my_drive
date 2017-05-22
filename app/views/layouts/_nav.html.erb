@@ -6,13 +6,13 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>
                     
                     <span class="light">
                         
                        
-                      <% if user_signed_in? %>
-                        Hi <strong><%= current_user.username %></strong>
+                      <% if user_signed_in? %>Hi
+                    <i class="fa fa-play-circle">
+                        <strong><%= current_user.username %></strong></i>
                         <%= link_to 'Edit profile', edit_user_registration_path %> |
                         <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
                         <% else %>
@@ -22,6 +22,7 @@
                       <% end %>
  
                      </span>
+                     
                 </a>
             </div>
 

@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <h2><center>User Document</center></h2><br>
-
 <table class="table table-hover">
   <thead>
     <tr  class="active">
@@ -30,8 +28,12 @@
   </tbody>
 </table>
 
-<center><%= link_to 'Edit', edit_doc_path(@doc), class: "btn btn-info" %> |
-<%= link_to 'Show', @doc, class: "btn btn-info" %> |
-<%= link_to 'Back', docs_path, class: "btn btn-info" %> |
-<%= link_to 'Destroy', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %> |
-<%= link_to 'Create New Document', new_doc_path, class: "btn btn-info" %></center>
+<center>
+  <%= link_to 'Upload a file',new_attach_path(doc_no: @doc.id) ,class: "btn btn-info" %> |
+  <%= link_to 'Files List', attaches_path, class: "btn btn-info" %> |
+  <%= link_to 'Edit', edit_doc_path(@doc), class: "btn btn-info"%>|
+  <%= link_to 'Back', docs_path, class: "btn btn-info" %> |
+  <%= link_to 'Delete', @doc, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %> |
+  <%= link_to 'Create New Document', new_doc_path, class: "btn btn-info" %>
+  
+</center>

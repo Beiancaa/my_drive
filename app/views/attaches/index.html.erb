@@ -1,0 +1,37 @@
+<center><h1>Attaches List</h1></center>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+<br />
+<br />
+
+<table class="table table-hover">
+   <thead>.
+      <tr class="active">
+         <th><center>Name</center></th>
+         <th><center>Show Attach</center></th>
+         <th><center>Remove Attach</center></th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @attaches.each do |attach| %>
+         
+         <tr>
+            <td><center><%= attach.name %><center></td>
+            <td><center><%= link_to "Show", attach.file_url %></center></td>
+            <td><center><%= link_to "Delete",  attach, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+<center>
+   <%= link_to "New Attach", new_attach_path, class: "btn btn-primary" %>
+</center>
