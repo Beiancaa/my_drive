@@ -4,7 +4,7 @@ class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
   def index
-    @docs = Doc.all
+    @docs = Doc.where(user_id: current_user)
   end
 
   # GET /docs/1
@@ -69,6 +69,6 @@ class DocsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doc_params
-      params.require(:doc).permit(:title, :content, :city, :address, :user_id)
+      params.require(:doc).permit(:title, :content, :city, :address)
     end
 end
