@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @blog.user %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<table class="table table-hover">
+  <thead>
+    <tr  class="active">
+      <th><center><%= @blog.title %></center></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+      <td><center><%= @blog.body %></center></td>
+    </tr>
+  </tbody>
+</table>
+<center>
+<%= link_to 'Back', blogs_path, class: "btn btn-info" %>
+</center>
