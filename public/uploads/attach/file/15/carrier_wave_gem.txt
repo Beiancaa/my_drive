@@ -1,0 +1,120 @@
+gem 'carrierwave', '~> 1.1'
+gem 'mini_magick', '~> 4.7'
+bundle install 
+rails g uploader file
+# will create app/uploader/file_uploader >>>> replase old copy and pastr new code 
+ # Include RMagick or MiniMagick support:
+  # include CarrierWave::RMagick
+   include CarrierWave::MiniMagick
+
+  # Choose what kind of storage to use for this uploader:
+  storage :file
+  # storage :fog
+
+  # Override the directory where uploaded files will be stored.
+  # This is a sensible default for uploaders that are meant to be mounted:
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  # def default_url(*args)
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # end
+
+  # Process files as they are uploaded:
+  # process scale: [200, 300]
+  #
+  # def scale(width, height)
+  #   # do something
+  # end
+
+  # Create different versions of your uploaded files:
+  version :thumb, if: :image? do
+    process resize_to_fit: [200, 200]
+  end
+
+  protected
+
+  def image? new_file
+    new_file.content_type.start_with? 'image'
+  end
+
+  # Add a white list of extensions which are allowed to be uploaded.
+  # For images you might use something like this:
+  # def extension_whitelist
+  #   %w(jpg jpeg gif png)
+  # end
+
+  # Override the filename of the uploaded files:
+  # Avoid using model.id or version_name here, see uploader/store.rb for details.
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
+
+===============================>
+rails g model asset file
+#assets.rb
+ belongs_to :project
+----
+# go to the migration file and add this >>
+t.references :project, index: true, foreign_key: true
+============>rake db:migrate   
+#assets.rb
+ belongs_to :project
+  mount_uploader :file, FileUploader
+===========>
+# Create assets_controller.rb  >>>
+class AssetsController < ApplicationController
+  def create
+    @project = Project.find params[:project_id]
+    @asset = @project.assets.build asset_params
+
+    if @asset.save
+      redirect_to @project, notice: "File was successfully uploaded."
+    else
+      redirect_to @project, alert: "File was not uploaded."
+    end
+  end
+
+  protected
+
+  def asset_params
+    params.require(:asset).permit(:file)
+  end
+end
+===============>
+# app/views/projects/show.html.erb >>>>> buttom of the page 
+<%= render "assets" %>
+#Now Create the partal>>>
+#Create app/views/projects/_assets.html.erb >>>>
+<h3>Assets for the project</h3>
+
+<ul>
+  <%- @project.assets.each do |asset| %>
+    <li>
+      <%= link_to asset.file_url do %>
+        <%= image_tag asset.file_url(:thumb), width: 120 if asset.file_url =~ /(gif|jpg|jpeg|png|bmp)$/ %>
+        <%= asset.file_identifier %>
+      <%- end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_for [ @project, @project.assets.build ], multipart: true do |f| %>
+<p>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+</p>
+<% end %>
+======================>
+#Go to app/config/route.rb >>>
+      resources :assets, only: [:create]
+================>
+#Go to app/models/project.rb >>>>>>
+  has_many :assets
+==============================>RESTART YOUR SERVER AND START UPLOAD UR FILES
+

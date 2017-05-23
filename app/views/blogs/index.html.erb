@@ -7,7 +7,7 @@
     <tr class="active">
       <th><center>Title</center></th>
       <th><center>Body</center></th>
-      <th><center>User</center></th>
+      <th><center>Admin</center></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><center><%= link_to blog.title,blog %></center></td>
+        <td><center><%= link_to blog.title,blog, class: "btn btn-primary" %></center></td>
         <td><center><%= blog.body %></center></td>
-        <td><center><%= blog.user %></center></td>
+        <td><center><%= blog.user.username %></center></td>
       </tr>
     <% end %>
   </tbody>

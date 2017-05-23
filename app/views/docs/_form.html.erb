@@ -1,4 +1,4 @@
-
+<center>
 <%= form_for(@doc) do |f| %>
   <% if @doc.errors.any? %>
     <div id="error_explanation">
@@ -18,7 +18,7 @@
   </div>
   <div class="form-group">
     <%= f.label :content %><br>
-    <%= f.text_area :content,class: "form-control" %>
+    <%= f.text_field :content,class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :city %><br>
@@ -34,3 +34,4 @@
     </center>
   </div>
 <% end %>
+</center>

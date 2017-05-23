@@ -1,6 +1,16 @@
 @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body {
+  background: image-url( "https://goo.gl/VnsXwr.jpg" ) #0092ce;
+  background-repeat: no-repeat;
+}
+
+a:link { 
+    text-decoration:none;
+    
+}
+
 
 .active{
     background-color: white;
