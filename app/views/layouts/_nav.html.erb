@@ -6,23 +6,27 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    
-                    <span class="light">
-                        
-                       
+                 <i class="fa fa-play-circle"></i>
+                   
                       <% if user_signed_in? %>Hi
-                    <i class="fa fa-play-circle">
-                        <strong><%= current_user.username %></strong></i>
-                        <%= link_to 'Edit profile', edit_user_registration_path %> |
-                        <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+                        <i class="fa fa-play-circle">
+                          <%= current_user.username %>
+                         <ul class="nav navbar-nav"> 
+                          <li>
+                           <%= link_to "Logout", destroy_user_session_path, method: :delete  %> 
+                          </li>
+                          </ul>
                         <% else %>
-                        <%= link_to "Sign up", new_user_registration_path  %> |
-                        <%= link_to "Login", new_user_session_path %>
-                        
+                         <ul class="nav navbar-nav"> 
+                          <li>
+                          <a <%= link_to "Sign up", new_user_registration_path  %> </a>
+                          </li>
+                          <li>
+                           <a | <%= link_to "Login", new_user_session_path %></a> 
+                          </li>
+                        </ul>
                       <% end %>
- 
-                     </span>
-                     
+                    
                 </a>
             </div>
 
@@ -46,7 +50,7 @@
                         <a class="page-scroll"  <%= link_to 'Blog' ,blogs_path%> </a>
                     </li>
                     <li>
-                        <a class="page-scroll"  <%= link_to 'Contact Us' ,contact_path%> </a>
+                        <a  class="page-scroll" <%= link_to 'Contact Us' ,contact_path%> </a>
                     </li>
                     
                 </ul>

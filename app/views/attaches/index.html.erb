@@ -24,8 +24,8 @@
          
          <tr>
             <td><center><%= attach.name %><center></td>
-            <td><center><%= link_to "Show", attach.file_url %></center></td>
-            <td><center><%= link_to "Delete",  attach, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+            <td><center><%= link_to "Show", attach.file_url , class: "btn btn-info"%></center></td>
+            <td><center><%= link_to "Delete",  attach, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></center></td>
          </tr>
          
       <% end %>

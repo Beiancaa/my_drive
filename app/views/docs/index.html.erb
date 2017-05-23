@@ -15,7 +15,7 @@
   <tbody>
     <% @docs.each do |doc| %>
       <tr >
-        <td><center><%= link_to doc.title, doc %></center></td>
+        <td><center><%= link_to doc.title, doc, class: "btn btn-primary" %></center></td>
         <td><center><%= time_ago_in_words(doc.created_at) %></center></td>
         <td><center><%= truncate(doc.content, length:50) %></center></td>
         <!-- <td><%= link_to 'Show', @doc %></td> -->

@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email,class: "form-control" %>
+    <%= f.email_field :email %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -14,22 +14,22 @@
   
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name,class: "form-control" %>
+    <%= f.text_field :first_name %>
   </div>
   
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name,class: "form-control" %>
+    <%= f.text_field :last_name %>
   </div>
   
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true,class: "form-control" %>
+    <%= f.text_field :username, autofocus: true %>
   </div> 
    
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
+    <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -38,17 +38,17 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off",class: "form-control" %>
+    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
   
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone,class: "form-control" %>
+    <%= f.text_field :phone %>
   </div> 
   
   <div class="field">
@@ -68,4 +68,4 @@
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </center>
 
-<%= link_to "Back", :back %>
+<center><%= link_to "Back", :back, class: "btn btn-info" %></center>

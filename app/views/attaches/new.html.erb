@@ -1,27 +1,24 @@
 <center><h1>New Attach</h1></center>
-
 <% if !@attach.errors.empty? %>
-   <div class = "alert alert-error">
+       <div class = "alert alert-error">
       
-      <ul>
+        <ul>
          <% @attch.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
          <% end %>
-      </ul>
-      
-   </div>
+        </ul>
+      </div>
 <% end %>
-<center>
-<div class="form-group">
+
+
+<div class="form" style="color:black">
    <%= form_for @attach, html: { multipart: true } do |f| %>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %><br><br>
       <%= f.label :file,'please select a file to upload' %><br>
       <%= f.file_field :file%><br>
-      
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br><br>
       
       <%= f.hidden_field :doc_id,value:params[:doc_no]%></br>
       <%= f.submit "Save", class: "btn btn-primary" %>
    <% end %>
 </div>
-</center>
